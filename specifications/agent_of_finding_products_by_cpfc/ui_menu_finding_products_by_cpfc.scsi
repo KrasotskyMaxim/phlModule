@@ -1,0 +1,29 @@
+ui_menu_finding_products_by_cpfc <- ui_user_command_class_atom; ui_user_command_class_view_kb; ui_one_argument_command_class;;
+
+ui_menu_finding_products_by_cpfc 
+=> nrel_main_idtf: 
+	[Какие продукты соответствуют заданным параметрам?]
+	(* <- lang_ru;; *);
+=> nrel_idtf: 
+	[Запрос поиска продуктов по параметрам]
+	(* <- lang_ru;; *);;
+
+ui_menu_finding_products_by_cpfc 
+=> nrel_main_idtf: 
+	[What are products that correspondents to parameters?]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[Request searches for products corresponding to parameters]
+	(* <- lang_en;; *);;
+
+ui_menu_finding_products_by_cpfc => ui_nrel_command_template:
+	[*
+		question_find_products_by_cpfc _-> ._question_find_products_by_cpfc_instance
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._question_find_products_by_cpfc_instance _<- question;;
+	*];;
+
+ui_menu_finding_products_by_cpfc => ui_nrel_command_lang_template: [Какие продукты соответствуют заданным параметрам $ui_arg_1?] (* <- lang_ru;; *);;
+ui_menu_finding_products_by_cpfc => ui_nrel_command_lang_template: [What are products that correspondents to parameters $ui_arg_1?] (* <- lang_en;; *);;
