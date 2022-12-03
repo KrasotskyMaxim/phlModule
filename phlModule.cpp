@@ -6,7 +6,9 @@
 
 #include "phlModule.hpp"
 #include "keynodes/keynodes.hpp"
+
 #include "agents/FindProductsByCPFCAgent.hpp"
+#include "agents/FindExcerciseBySpecificBodyPartAgent.hpp"
 
 using namespace phlModule;
 
@@ -18,6 +20,7 @@ sc_result PHLModule::InitializeImpl()
     return SC_RESULT_ERROR;
 
   SC_AGENT_REGISTER(FindProductsByCPFCAgent)
+  SC_AGENT_REGISTER(FindExcerciseBySpecificBodyPartAgent)
 
   return SC_RESULT_OK;
 }
@@ -25,6 +28,7 @@ sc_result PHLModule::InitializeImpl()
 sc_result PHLModule::ShutdownImpl()
 {
   SC_AGENT_UNREGISTER(FindProductsByCPFCAgent)
+  SC_AGENT_UNREGISTER(FindExcerciseBySpecificBodyPartAgent)
 
   return SC_RESULT_OK;
 }

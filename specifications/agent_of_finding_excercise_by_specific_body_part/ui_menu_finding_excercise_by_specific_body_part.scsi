@@ -1,0 +1,29 @@
+ui_menu_finding_excercise_by_specific_body_part <- ui_user_command_class_atom; ui_user_command_class_view_kb; ui_one_argument_command_class;;
+
+ui_menu_finding_excercise_by_specific_body_part 
+=> nrel_main_idtf: 
+	[Какие упражнения подходят для заданной части тела?]
+	(* <- lang_ru;; *);
+=> nrel_idtf: 
+	[Запрос поиска упражнений по параметрам]
+	(* <- lang_ru;; *);;
+
+ui_menu_finding_excercise_by_specific_body_part 
+=> nrel_main_idtf: 
+	[What exercises are suitable for a given body part?]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[Request searches for excercices corresponding to parameters]
+	(* <- lang_en;; *);;
+
+ui_menu_finding_excercise_by_specific_body_part => ui_nrel_command_template:
+	[*
+		question_find_excercise_by_specific_body_part _-> ._question_find_excercise_by_specific_body_part_instance
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._question_find_excercise_by_specific_body_part_instance _<- question;;
+	*];;
+
+ui_menu_finding_excercise_by_specific_body_part => ui_nrel_command_lang_template: [Какие упражнения подходят для заданной части тела $ui_arg_1?] (* <- lang_ru;; *);;
+ui_menu_finding_excercise_by_specific_body_part => ui_nrel_command_lang_template: [What exercises are suitable for a given body part $ui_arg_1?] (* <- lang_en;; *);;

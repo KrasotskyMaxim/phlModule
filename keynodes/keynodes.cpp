@@ -10,9 +10,12 @@ namespace phlModule
 {
 
 ScAddr Keynodes::question_find_products_by_cpfc;
+ScAddr Keynodes::question_find_excercise_by_specific_body_part;
+
 ScAddr Keynodes::nrel_calorie_content;
 ScAddr Keynodes::nrel_protein_content;
 ScAddr Keynodes::nrel_fats_content;
 ScAddr Keynodes::nrel_carbohydrates_content;
+ScAddr Keynodes::nrel_inclusion;
 
 }

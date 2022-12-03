@@ -21,10 +21,12 @@
     ScMemoryContext ctx(sc_access_lvl_make_min, "Keynodes::_InitStaticInternal"); \
     bool result = true; \
 	question_find_products_by_cpfc = ctx.HelperResolveSystemIdtf("question_find_products_by_cpfc", ScType::Node); result = result && question_find_products_by_cpfc.IsValid(); \
+	question_find_excercise_by_specific_body_part = ctx.HelperResolveSystemIdtf("question_find_excercise_by_specific_body_part", ScType::Node); result = result && question_find_excercise_by_specific_body_part.IsValid(); \
 	nrel_calorie_content = ctx.HelperResolveSystemIdtf("nrel_calorie_content", ScType::Node); result = result && nrel_calorie_content.IsValid(); \
 	nrel_protein_content = ctx.HelperResolveSystemIdtf("nrel_protein_content", ScType::Node); result = result && nrel_protein_content.IsValid(); \
 	nrel_fats_content = ctx.HelperResolveSystemIdtf("nrel_fats_content", ScType::Node); result = result && nrel_fats_content.IsValid(); \
 	nrel_carbohydrates_content = ctx.HelperResolveSystemIdtf("nrel_carbohydrates_content", ScType::Node); result = result && nrel_carbohydrates_content.IsValid(); \
+	nrel_inclusion = ctx.HelperResolveSystemIdtf("nrel_inclusion", ScType::Node); result = result && nrel_inclusion.IsValid(); \
     return result; \
 }
 

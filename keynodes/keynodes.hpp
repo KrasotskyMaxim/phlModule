@@ -24,6 +24,9 @@ public:
   SC_PROPERTY(Keynode("question_find_products_by_cpfc"), ForceCreate)
   static ScAddr question_find_products_by_cpfc;
   
+  SC_PROPERTY(Keynode("question_find_excercise_by_specific_body_part"), ForceCreate)
+  static ScAddr question_find_excercise_by_specific_body_part;
+  
   SC_PROPERTY(Keynode("nrel_calorie_content"), ForceCreate)
   static ScAddr nrel_calorie_content;
   
@@ -35,6 +38,9 @@ public:
   
   SC_PROPERTY(Keynode("nrel_carbohydrates_content"), ForceCreate)
   static ScAddr nrel_carbohydrates_content;
+  
+  SC_PROPERTY(Keynode("nrel_inclusion"), ForceCreate)
+  static ScAddr nrel_inclusion;
   
 };
 
