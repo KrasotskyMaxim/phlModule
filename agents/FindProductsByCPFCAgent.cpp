@@ -28,17 +28,57 @@ SC_AGENT_IMPLEMENTATION(FindProductsByCPFCAgent)
 
   ScAddr answer = ms_context->CreateNode(ScType::NodeConstStruct);
   ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, param);
-  
-  ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, Keynodes::nrel_inclusion);
 
-  ScIterator5Ptr iterator5_1 = IteratorUtils::getIterator5(ms_context.get(), param, Keynodes::nrel_inclusion, true); // find inclusion*
-  
+  // calories
+  ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, Keynodes::nrel_calorie_content);
+
+  ScIterator5Ptr iterator5_1 = IteratorUtils::getIterator5(ms_context.get(), param, Keynodes::nrel_calorie_content, false);
   while (iterator5_1->Next())
   {
-    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_1->Get(1)); // edge common
-    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_1->Get(2)); // excercise
-    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_1->Get(3)); // edge access
-    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_1->Get(4)); // nrel_inclusion*
+    ScAddr sheaf = iterator5_1->Get(0);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_1->Get(1));
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, sheaf);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_1->Get(3));
+    GenerationUtils::addSetToOutline(ms_context.get(), sheaf, answer);
+  }
+
+  // proteins
+  ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, Keynodes::nrel_protein_content);
+
+  ScIterator5Ptr iterator5_2 = IteratorUtils::getIterator5(ms_context.get(), param, Keynodes::nrel_protein_content, false);
+  while (iterator5_2->Next())
+  {
+    ScAddr sheaf = iterator5_2->Get(0);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_2->Get(1));
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, sheaf);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_2->Get(3));
+    GenerationUtils::addSetToOutline(ms_context.get(), sheaf, answer);
+  }
+
+  // fats
+  ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, Keynodes::nrel_fats_content);
+
+  ScIterator5Ptr iterator5_3 = IteratorUtils::getIterator5(ms_context.get(), param, Keynodes::nrel_fats_content, false);
+  while (iterator5_3->Next())
+  {
+    ScAddr sheaf = iterator5_3->Get(0);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_3->Get(1));
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, sheaf);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_3->Get(3));
+    GenerationUtils::addSetToOutline(ms_context.get(), sheaf, answer);
+  }
+
+  // carbohydrates
+  ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, Keynodes::nrel_carbohydrates_content);
+
+  ScIterator5Ptr iterator5_4 = IteratorUtils::getIterator5(ms_context.get(), param, Keynodes::nrel_carbohydrates_content, false);
+  while (iterator5_4->Next())
+  {
+    ScAddr sheaf = iterator5_4->Get(0);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_4->Get(1));
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, sheaf);
+    ms_context->CreateEdge(ScType::EdgeAccessConstPosPerm, answer, iterator5_4->Get(3));
+    GenerationUtils::addSetToOutline(ms_context.get(), sheaf, answer);
   }
 
   AgentUtils::finishAgentWork(ms_context.get(), questionNode, answer);
