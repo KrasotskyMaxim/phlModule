@@ -19,16 +19,16 @@ sc_result PHLModule::InitializeImpl()
   if (!phlModule::Keynodes::InitGlobal())
     return SC_RESULT_ERROR;
 
-  SC_AGENT_REGISTER(FindProductsByCPFCAgent)
   SC_AGENT_REGISTER(FindExcerciseBySpecificBodyPartAgent)
+  SC_AGENT_REGISTER(FindProductsByCPFCAgent)
 
   return SC_RESULT_OK;
 }
 
 sc_result PHLModule::ShutdownImpl()
 {
-  SC_AGENT_UNREGISTER(FindProductsByCPFCAgent)
   SC_AGENT_UNREGISTER(FindExcerciseBySpecificBodyPartAgent)
+  SC_AGENT_UNREGISTER(FindProductsByCPFCAgent)
 
   return SC_RESULT_OK;
 }
