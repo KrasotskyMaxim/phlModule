@@ -1,0 +1,29 @@
+ui_menu_finding_vitamins <- ui_user_command_class_atom; ui_user_command_class_view_kb; ui_one_argument_command_class;;
+
+ui_menu_finding_vitamins 
+=> nrel_main_idtf: 
+	[Какие витамины содержатся в продукте?]
+	(* <- lang_ru;; *);
+=> nrel_idtf: 
+	[Запрос поиска витаминов по шаблону]
+	(* <- lang_ru;; *);;
+
+ui_menu_finding_vitamins 
+=> nrel_main_idtf: 
+	[What vitamins are in the product?]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[Request searches for vitamins corresponding to template]
+	(* <- lang_en;; *);;
+
+ui_menu_finding_vitamins => ui_nrel_command_template:
+	[*
+		question_find_vitamins _-> ._question_find_vitamins_instance
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._question_find_vitamins_instance _<- question;;
+	*];;
+
+ui_menu_finding_vitamins => ui_nrel_command_lang_template: [Какие витамины содержатся в продукте $ui_arg_1?] (* <- lang_ru;; *);;
+ui_menu_finding_vitamins => ui_nrel_command_lang_template: [What vitamins are in the product $ui_arg_1?] (* <- lang_en;; *);;

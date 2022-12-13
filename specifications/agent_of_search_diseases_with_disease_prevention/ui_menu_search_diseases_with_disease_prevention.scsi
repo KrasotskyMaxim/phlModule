@@ -1,0 +1,29 @@
+ui_menu_search_diseases_with_disease_prevention <- ui_user_command_class_atom; ui_user_command_class_view_kb; ui_one_argument_command_class;;
+
+ui_menu_search_diseases_with_disease_prevention 
+=> nrel_main_idtf: 
+	[Какие болезни соответствуют заданным мерам профилактики болезней?]
+	(* <- lang_ru;; *);
+=> nrel_idtf: 
+	[Запрос поиска болезней по мерам профилактики болезней]
+	(* <- lang_ru;; *);;
+
+ui_menu_search_diseases_with_disease_prevention 
+=> nrel_main_idtf: 
+	[What are products that correspondents to disease prevention?]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[Request searches for products corresponding to disease prevention]
+	(* <- lang_en;; *);;
+
+ui_menu_search_diseases_with_disease_prevention => ui_nrel_command_template:
+	[*
+		question_search_diseases_with_disease_prevention _-> ._question_search_diseases_with_disease_prevention_instance
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._question_search_diseases_with_disease_prevention_instance _<- question;;
+	*];;
+
+ui_menu_search_diseases_with_disease_prevention => ui_nrel_command_lang_template: [Какие болезни соответствуют заданным мерам профилактики болезней $ui_arg_1?] (* <- lang_ru;; *);;
+ui_menu_search_diseases_with_disease_prevention => ui_nrel_command_lang_template: [What are products that correspondents to disease prevention $ui_arg_1?] (* <- lang_en;; *);;
